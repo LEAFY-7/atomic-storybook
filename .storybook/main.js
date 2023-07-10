@@ -21,7 +21,8 @@ module.exports = {
         ...config.resolve.alias,
         "@emotion/styled": resolvePath("node_modules/@emotion/styled"),
         /* 경로 별칭을 사용하는 경우 아래 주석을 해제하여 적절하게 사용한다 */
-        // "@components": resolvePath("src/components"),
+        "@components": resolvePath("src/components/*"),
+        // "@stories": resolvePath("src/stories/*"),
       },
     },
   }),

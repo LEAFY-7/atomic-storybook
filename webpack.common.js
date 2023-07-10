@@ -7,11 +7,15 @@ const isProduction = process.env.NODE_ENV === "production";
 
 module.exports = {
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx"],
+    extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],
     /* alias를 사용할 경우 주석을 해제하고 사용한다. */
-    // alias: {
-    //   "@components": path.resolve(__dirname, "src/components"),
-    // },
+    alias: {
+      "@components": path.resolve(__dirname, "./src/components"),
+      "@figma": path.resolve(__dirname, "./src/figma"),
+      "@configs": path.resolve(__dirname, "./src/configs"),
+      "@hooks": path.resolve(__dirname, "./src/hooks"),
+      "@stories": path.resolve(__dirname, "./src/stories"),
+    },
   },
   entry: {
     app: "./src/index.tsx",
