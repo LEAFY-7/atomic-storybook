@@ -1,8 +1,10 @@
-# React Boilerplate
+# Leafyer Atomic Story Book
 
-## 프로젝트 구성
+## 스토리 북 구성
 
-- Webpack, Babel, ESLint, TypeScript, ESLint, Prettier, Storybook
+- Atoms
+- molecules
+- [보러가기](https://leafyer-storybook.netlify.app/)
 
 ## 실행방법
 
