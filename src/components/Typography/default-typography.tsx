@@ -14,7 +14,7 @@ interface Props
   as?: "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p";
   variant: VariantType;
   fontSize?: keyof typeof theme.fontSize;
-  lineHeight?: keyof typeof theme.lineHeight | "none";
+  lineHeight?: keyof typeof theme.lineHeight;
   color?: keyof typeof theme.colors;
   fontWeight?: keyof typeof theme.fontWeight;
   marginTop?: number;
@@ -34,9 +34,9 @@ const Typography = ({
   as: Component = "span",
   variant = "BODY1",
   width = "inherit",
-  color = "black",
-  fontSize = "md",
-  lineHeight = "none",
+  color,
+  fontSize,
+  lineHeight,
   fontWeight = "bold",
   marginTop = 0,
   marginRight = 0,
@@ -70,8 +70,9 @@ const Typography = ({
     text-align: ${textAlign};
     width: ${newWidth};
     ${typographyVariant}
-    line-height: ${lineHeight !== "none" && theme.lineHeight[lineHeight]};
-    color: ${theme.colors[color]};
+    line-height: ${lineHeight && theme.lineHeight[lineHeight]};
+    color: ${color && theme.colors[color]};
+    font-size: ${fontSize && theme.fontSize[fontSize]};
   `;
   return (
     <Component css={defaultTypographyStyle} {...rest}>

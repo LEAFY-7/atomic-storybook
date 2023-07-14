@@ -15,6 +15,10 @@ export default {
       control: { type: "select" },
       options: ["H1", "H2", "H3", "BODY1", "BODY2", "BODY3"],
     },
+    fontSize: {
+      control: { type: "radio" },
+      options: ["xxs", "xs", "sm", "md", "lg", "xl", "xxl", "xxxl", "xxxxl"],
+    },
     color: {
       control: { type: "select" },
       options: [
@@ -72,6 +76,12 @@ const Template = (args) => {
             지원합니다.
           </Styled.Li>
           <Styled.Li> H1, H2, H3, BODY1, BODY2, BODY3</Styled.Li>
+          <Styled.Li>
+            기본적으로 variant에 따라 폰트 크기와 글간격, 굵기 등을 제공하지만,
+          </Styled.Li>
+          <Styled.Li>
+            fontSize, lineHeight를 props으로 주어 변형이 가능해집니다.
+          </Styled.Li>
 
           <Styled.H3>2. as Props</Styled.H3>
           <Styled.Strong>
