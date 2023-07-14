@@ -1,5 +1,5 @@
+import { useState } from "react";
 import { Meta } from "@storybook/react";
-import { Theme, css } from "@emotion/react";
 import Div from "../components/Div/default-div";
 
 export default {
@@ -18,27 +18,31 @@ export default {
       control: "boolean",
     },
     width: {
-      control: "number",
+      control: { type: "text" },
     },
     height: {
-      control: "number",
+      control: { type: "text" },
     },
     marginTop: {
-      control: "range",
+      control: "number",
     },
     marginBottom: {
-      control: "range",
+      control: "number",
     },
     marginLeft: {
-      control: "range",
+      control: "number",
     },
     marginRight: {
-      control: "range",
+      control: "number",
+    },
+    padding: {
+      control: "number",
     },
   },
 } as Meta;
 
 const Template = (args) => {
+  const [toggle, setToggle] = useState(false);
   const { size, width, height, children, variant } = args;
 
   const { width: w, height: h } = divSizeBox[size];
@@ -67,51 +71,57 @@ const Template = (args) => {
 
   return (
     <section>
-      <h1>일반 Div 컴포넌트</h1>
+      <button onClick={() => setToggle((prev) => !prev)}>설명 보기</button>
+      {toggle && (
+        <>
+          <h1>일반 Div 컴포넌트</h1>
 
-      <h3>1. Size Props</h3>
-      <strong>size Props에 따라 Div 박스의 크기가 달라집니다.</strong>
-      <li>
-        Leafy에서 제공하는 Div 박스의 Size Props는 "xs" , "sm" , "md" , "lg" ,
-        "xl" , "default" 입니다.{" "}
-      </li>
-      <li>
-        size를 prop으로 내려주지 않으면 default로 지정되며 커스텀하여 사용하게
-        됩니다.
-      </li>
+          <h3>1. Size Props</h3>
+          <strong>size Props에 따라 Div 박스의 크기가 달라집니다.</strong>
+          <li>
+            Leafy에서 제공하는 Div 박스의 Size Props는 "xs" , "sm" , "md" , "lg"
+            , "xl" , "default" 입니다.{" "}
+          </li>
+          <li>
+            size를 prop으로 내려주지 않으면 default로 지정되며 커스텀하여
+            사용하게 됩니다.
+          </li>
 
-      <h3>2. variant Props</h3>
+          <h3>2. variant Props</h3>
 
-      <strong>Leafy에서 제공하는 Div박스의 variant는 세 가지 입니다.</strong>
-      <li>2.1. default - 아무것도 적용하지 않음</li>
-      <li>2.2. primary - primary 배경색의 Div 박스</li>
-      <li>2.3. secondary - secondary 배경색의 Div 박스</li>
-      <li>2.4. translucent - 반투명의 Div 박스 </li>
+          <strong>
+            Leafy에서 제공하는 Div박스의 variant는 세 가지 입니다.
+          </strong>
+          <li>2.1. default - 아무것도 적용하지 않음</li>
+          <li>2.2. primary - primary 배경색의 Div 박스</li>
+          <li>2.3. secondary - secondary 배경색의 Div 박스</li>
+          <li>2.4. translucent - 반투명의 Div 박스 </li>
 
-      <h3>3. width/height</h3>
-      <strong>
-        size를 prop으로 내려주지 않으면 커스텀하여 사용할 수 있습니다.
-      </strong>
-      <li>width/height에 number로 내려주게 되면 %로 받게 됩니다.</li>
-      <li>예 ) `width={100}` 넓이 : 100% </li>
-      <li>width/height에 string으로 내려주게 되면 px로 받게 됩니다.</li>
+          <h3>3. width/height</h3>
+          <strong>
+            size를 prop으로 내려주지 않으면 커스텀하여 사용할 수 있습니다.
+          </strong>
+          <li>width/height에 number로 내려주게 되면 %로 받게 됩니다.</li>
+          <li>예 ) `width={100}` 넓이 : 100% </li>
+          <li>width/height에 string으로 내려주게 되면 px로 받게 됩니다.</li>
 
-      <li>예 ) `width="100px"` 넓이 : 100px </li>
-      <li>
-        (주의 ! 이 스토리북에서는 단일 타입만 적용이 되므로 숫자만 기입이
-        가능합니다.)
-      </li>
+          <li>예 ) `width="100px"` 넓이 : 100px </li>
+          <li>
+            (주의 ! 이 스토리북에서는 단일 타입만 적용이 되므로 숫자만 기입이
+            가능합니다.)
+          </li>
 
-      <h3>4. Margin - Top, Bottom, Left, Right</h3>
-      <li>margin top/bottom/left/right의 props는 number 타입입니다.</li>
-      <li>number에 맞게 px단위로 이동을 하게 됩니다.</li>
+          <h3>4. Margin - Top, Bottom, Left, Right</h3>
+          <li>margin top/bottom/left/right의 props는 number 타입입니다.</li>
+          <li>number에 맞게 px단위로 이동을 하게 됩니다.</li>
 
-      <h3>5. 그 밖의 props</h3>
-      <li>
-        display, justifyContent, alignItems, direction(flex-direction), color,
-        backgroundColor, overflowX/Y, padding 등
-      </li>
-      <span> {description}</span>
+          <h3>5. 그 밖의 props</h3>
+          <li>
+            display, justifyContent, alignItems, direction(flex-direction),
+            color, backgroundColor, overflowX/Y, padding 등
+          </li>
+        </>
+      )}
 
       <div
         style={{
@@ -123,26 +133,37 @@ const Template = (args) => {
           alignItems: "center",
         }}
       >
+        <div
+          style={{
+            width: "100vw",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "flex-start",
+            borderBottom: "1px solid black",
+          }}
+        >
+          <span> {description}</span>
+          <td style={{ fontSize: "16px" }}>variant : {variant}</td>
+          <td style={{ fontSize: "16px" }}>size : {size}</td>
+          <td style={{ fontSize: "16px" }}>
+            넓이 : {size === "default" ? w + "px" : width}
+          </td>
+          <td style={{ fontSize: "16px" }}>
+            높이 : {size === "default" ? h + "px" : height}
+          </td>
+        </div>
         <Div {...args}>
           <div> {children}</div>
         </Div>
       </div>
-      <td style={{ fontSize: "16px" }}>variant : {variant}</td>
-      <td style={{ fontSize: "16px" }}>size : {size}</td>
-      <td style={{ fontSize: "16px" }}>
-        넓이 : {size === "default" ? w + "px" : width}
-      </td>
-      <td style={{ fontSize: "16px" }}>
-        높이 : {size === "default" ? h + "px" : height}
-      </td>
     </section>
   );
 };
 
 export const defaultDiv = Template.bind({});
 defaultDiv.args = {
-  size: "md",
   variant: "translucent",
+  size: "md",
   isBorder: false,
   width: "inherit",
   height: "inherit",
@@ -150,6 +171,7 @@ defaultDiv.args = {
   justifyContent: "center",
   alignItems: "center",
   direction: "row",
+  padding: 0,
 
   children: "",
 };
