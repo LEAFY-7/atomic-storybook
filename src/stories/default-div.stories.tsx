@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Meta } from "@storybook/react";
 import Div from "../components/Div/default-div";
+import * as Styled from "./index.styles";
 
 export default {
   title: "Atom/Div",
@@ -74,88 +75,91 @@ const Template = (args) => {
       <button onClick={() => setToggle((prev) => !prev)}>설명 보기</button>
       {toggle && (
         <>
-          <h1>일반 Div 컴포넌트</h1>
+          <Styled.H1>일반 Div 컴포넌트</Styled.H1>
 
-          <h3>1. Size Props</h3>
-          <strong>size Props에 따라 Div 박스의 크기가 달라집니다.</strong>
-          <li>
+          <Styled.H3>1. Size Props</Styled.H3>
+          <Styled.Strong>
+            size Props에 따라 Div 박스의 크기가 달라집니다.
+          </Styled.Strong>
+          <Styled.Li>
             Leafy에서 제공하는 Div 박스의 Size Props는 "xs" , "sm" , "md" , "lg"
             , "xl" , "default" 입니다.{" "}
-          </li>
-          <li>
+          </Styled.Li>
+          <Styled.Li>
             size를 prop으로 내려주지 않으면 default로 지정되며 커스텀하여
             사용하게 됩니다.
-          </li>
+          </Styled.Li>
 
-          <h3>2. variant Props</h3>
+          <Styled.H3>2. variant Props</Styled.H3>
 
-          <strong>
+          <Styled.Strong>
             Leafy에서 제공하는 Div박스의 variant는 세 가지 입니다.
-          </strong>
-          <li>2.1. default - 아무것도 적용하지 않음</li>
-          <li>2.2. primary - primary 배경색의 Div 박스</li>
-          <li>2.3. secondary - secondary 배경색의 Div 박스</li>
-          <li>2.4. translucent - 반투명의 Div 박스 </li>
+          </Styled.Strong>
+          <Styled.Li>2.1. default - 아무것도 적용하지 않음</Styled.Li>
+          <Styled.Li>2.2. primary - primary 배경색의 Div 박스</Styled.Li>
+          <Styled.Li>2.3. secondary - secondary 배경색의 Div 박스</Styled.Li>
+          <Styled.Li>2.4. translucent - 반투명의 Div 박스 </Styled.Li>
 
-          <h3>3. width/height</h3>
-          <strong>
+          <Styled.H3>3. width/height</Styled.H3>
+          <Styled.Strong>
             size를 prop으로 내려주지 않으면 커스텀하여 사용할 수 있습니다.
-          </strong>
-          <li>width/height에 number로 내려주게 되면 %로 받게 됩니다.</li>
-          <li>예 ) `width={100}` 넓이 : 100% </li>
-          <li>width/height에 string으로 내려주게 되면 px로 받게 됩니다.</li>
+          </Styled.Strong>
+          <Styled.Li>
+            width/height에 number로 내려주게 되면 %로 받게 됩니다.
+          </Styled.Li>
+          <Styled.Li>예 ) `width={100}` 넓이 : 100% </Styled.Li>
+          <Styled.Li>
+            width/height에 string으로 내려주게 되면 px로 받게 됩니다.
+          </Styled.Li>
 
-          <li>예 ) `width="100px"` 넓이 : 100px </li>
-          <li>
+          <Styled.Li>예 ) `width="100px"` 넓이 : 100px </Styled.Li>
+          <Styled.Li>
             (주의 ! 이 스토리북에서는 단일 타입만 적용이 되므로 숫자만 기입이
             가능합니다.)
-          </li>
+          </Styled.Li>
 
-          <h3>4. Margin - Top, Bottom, Left, Right</h3>
-          <li>margin top/bottom/left/right의 props는 number 타입입니다.</li>
-          <li>number에 맞게 px단위로 이동을 하게 됩니다.</li>
+          <Styled.H3>4. Margin - Top, Bottom, Left, Right</Styled.H3>
+          <Styled.Li>
+            margin top/bottom/left/right의 props는 number 타입입니다.
+          </Styled.Li>
+          <Styled.Li>number에 맞게 px단위로 이동을 하게 됩니다.</Styled.Li>
 
-          <h3>5. 그 밖의 props</h3>
-          <li>
+          <Styled.H3>5. 그 밖의 props</Styled.H3>
+          <Styled.Li>
             display, justifyContent, alignItems, direction(flex-direction),
             color, backgroundColor, overflowX/Y, padding 등
-          </li>
+          </Styled.Li>
         </>
       )}
 
-      <div
-        style={{
-          width: "100vw",
-          height: "100vh",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <div
-          style={{
-            width: "100vw",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "flex-start",
-            borderBottom: "1px solid black",
-          }}
-        >
-          <span> {description}</span>
-          <td style={{ fontSize: "16px" }}>variant : {variant}</td>
-          <td style={{ fontSize: "16px" }}>size : {size}</td>
-          <td style={{ fontSize: "16px" }}>
-            넓이 : {size === "default" ? w + "px" : width}
-          </td>
-          <td style={{ fontSize: "16px" }}>
-            높이 : {size === "default" ? h + "px" : height}
-          </td>
-        </div>
-        <Div {...args}>
-          <div> {children}</div>
-        </Div>
-      </div>
+      <Styled.Wrapper>
+        <Styled.SketchBook>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            {Array.from({ length: 19 }).map((d, index) => (
+              <Styled.Spring key={index} />
+            ))}
+          </div>
+          <Styled.InnerContent>
+            <Styled.Detail>
+              <Styled.Td>variant : {variant}</Styled.Td>
+              <Styled.Td>size : {size}</Styled.Td>
+              <Styled.Td>
+                넓이 : {size === "default" ? w + "px" : width}
+              </Styled.Td>
+              <Styled.Td>
+                높이 : {size === "default" ? h + "px" : height}
+              </Styled.Td>
+              <span> {description}</span>
+            </Styled.Detail>
+            <Div {...args}>
+              <div> {children}</div>
+            </Div>
+            <Styled.BottomText>
+              이 스케치북의 너비는 1200px 높이는 750px입니다.
+            </Styled.BottomText>
+          </Styled.InnerContent>
+        </Styled.SketchBook>
+      </Styled.Wrapper>
     </section>
   );
 };

@@ -1,7 +1,7 @@
 import DropDiv from "../components/Div/drop-div";
 import { Meta } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
-
+import * as Styled from "./index.styles";
 export default {
   title: "Atom/Div",
   component: DropDiv,
@@ -17,7 +17,7 @@ export default {
 
 const Template = (args) => {
   const { size } = args;
-  const { width, height, shadow } = dropSizeBox[size];
+  const { width, height, shadow, children } = dropSizeBox[size];
 
   let description = "";
   switch (size) {
@@ -52,24 +52,32 @@ const Template = (args) => {
 
   return (
     <section>
-      <h1>물방울 모양의 Div 컴포넌트</h1>
-      <li>size Props에 따라 물방울의 크기가 달라집니다.</li>
-      <div
-        style={{
-          width: "100vw",
-          height: "100vh",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <span> {description}</span>
-        <DropDiv {...args} />
+      <Styled.H1>물방울 모양의 Div 컴포넌트</Styled.H1>
+      <Styled.Strong>
+        size Props에 따라 물방울의 크기가 달라집니다.
+      </Styled.Strong>
 
-        <td style={{ fontSize: "16px" }}>넓이 : {width} px</td>
-        <td style={{ fontSize: "16px" }}>높이 : {height} px</td>
-      </div>
+      <Styled.Wrapper>
+        <Styled.SketchBook>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            {Array.from({ length: 19 }).map((d, index) => (
+              <Styled.Spring key={index} />
+            ))}
+          </div>
+          <Styled.InnerContent>
+            <Styled.Detail>
+              <Styled.Td>size : {size}</Styled.Td>
+              <Styled.Td>넓이 : {width} px</Styled.Td>
+              <Styled.Td>높이 : {height} px</Styled.Td>
+              <span> {description}</span>
+            </Styled.Detail>
+            <DropDiv {...args}>{children}</DropDiv>
+            <Styled.BottomText>
+              이 스케치북의 너비는 1200px 높이는 750px입니다.
+            </Styled.BottomText>
+          </Styled.InnerContent>
+        </Styled.SketchBook>
+      </Styled.Wrapper>
     </section>
   );
 };
