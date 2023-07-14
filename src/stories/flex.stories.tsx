@@ -61,7 +61,7 @@ const Template = (args) => {
     <section>
       <button onClick={() => setToggle((prev) => !prev)}>설명 보기</button>
       {toggle && (
-        <>
+        <Styled.DescriptionBox>
           <Styled.H1>Flex 컴포넌트</Styled.H1>
           <Styled.Strong>
             이 컴포넌트는 컴포넌트들 간의 Grouping을 위한 컴포넌트입니다.
@@ -106,7 +106,7 @@ const Template = (args) => {
           </Styled.Li>
           <Styled.H3>4. 그 밖의 props </Styled.H3>
           <Styled.Li>베경색을 props으로 받습니다.</Styled.Li>
-        </>
+        </Styled.DescriptionBox>
       )}
 
       <Styled.Wrapper>

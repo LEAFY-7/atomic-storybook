@@ -75,7 +75,7 @@ const Template = (args) => {
     <section>
       <button onClick={() => setToggle((prev) => !prev)}>설명 보기</button>
       {toggle && (
-        <>
+        <Styled.DescriptionBox>
           <Styled.H1>Typography 컴포넌트</Styled.H1>
           <Styled.Strong>
             이 컴포넌트는 텍스트를 다루는 컴포넌트입니다.
@@ -114,7 +114,7 @@ const Template = (args) => {
 
           <Styled.H3>4. 정렬과 관련 props </Styled.H3>
           <Styled.Li>textAlign을 Props으로 받아 정렬을 지원합니다.</Styled.Li>
-        </>
+        </Styled.DescriptionBox>
       )}
 
       <Styled.Wrapper>

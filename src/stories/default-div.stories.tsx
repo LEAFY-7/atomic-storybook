@@ -74,7 +74,7 @@ const Template = (args) => {
     <section>
       <button onClick={() => setToggle((prev) => !prev)}>설명 보기</button>
       {toggle && (
-        <>
+        <Styled.DescriptionBox>
           <Styled.H1>일반 Div 컴포넌트</Styled.H1>
 
           <Styled.H3>1. Size Props</Styled.H3>
@@ -129,7 +129,7 @@ const Template = (args) => {
             display, justifyContent, alignItems, direction(flex-direction),
             color, backgroundColor, overflowX/Y, padding 등
           </Styled.Li>
-        </>
+        </Styled.DescriptionBox>
       )}
 
       <Styled.Wrapper>

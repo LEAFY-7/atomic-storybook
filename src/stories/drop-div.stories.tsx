@@ -51,11 +51,12 @@ const Template = (args) => {
 
   return (
     <section>
-      <Styled.H1>물방울 모양의 Div 컴포넌트</Styled.H1>
-      <Styled.Strong>
-        size Props에 따라 물방울의 크기가 달라집니다.
-      </Styled.Strong>
-
+      <Styled.DescriptionBox>
+        <Styled.H1>물방울 모양의 Div 컴포넌트</Styled.H1>
+        <Styled.Strong>
+          size Props에 따라 물방울의 크기가 달라집니다.
+        </Styled.Strong>
+      </Styled.DescriptionBox>
       <Styled.Wrapper>
         <Styled.SketchBook>
           <div style={{ display: "flex", flexDirection: "column" }}>

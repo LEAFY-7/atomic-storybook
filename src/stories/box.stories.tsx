@@ -70,7 +70,7 @@ const Template = (args) => {
     <section>
       <button onClick={() => setToggle((prev) => !prev)}>설명 보기</button>
       {toggle && (
-        <>
+        <Styled.DescriptionBox>
           <Styled.H1>일반 Box 컴포넌트</Styled.H1>
           <Styled.Strong>
             이 컴포넌트는 일반적인 Div와 달리 시멘틱 태그를 위해 사용
@@ -123,7 +123,7 @@ const Template = (args) => {
             display, justifyContent, alignItems, direction(flex-direction),
             color, backgroundColor, overflowX/Y, padding 등
           </Styled.Li>
-        </>
+        </Styled.DescriptionBox>
       )}
 
       <Styled.Wrapper>

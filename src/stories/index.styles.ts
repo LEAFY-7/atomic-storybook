@@ -1,5 +1,16 @@
 import styled from "@emotion/styled";
 
+export const DescriptionBox = styled.div`
+  width: 1200px;
+  padding-left: 24px;
+  padding-right: 24px;
+  background-color: rgba(245, 245, 245, 0.3);
+  box-shadow:
+    5px 5px 10px rgba(14, 17, 27, 0.15),
+    inset 5px 5px 10px rgba(250, 250, 250, 0.15);
+  backdrop-filter: blur(15px);
+`;
+
 export const H1 = styled.h1`
   font-size: 22px;
 `;
