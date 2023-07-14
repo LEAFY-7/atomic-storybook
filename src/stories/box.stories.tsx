@@ -151,8 +151,8 @@ const Template = (args) => {
   );
 };
 
-export const defaultBox = Template.bind({});
-defaultBox.args = {
+export const defaultBoxComponent = Template.bind({});
+defaultBoxComponent.args = {
   as: "div",
   backgroundColor: "inherit",
   width: "inherit",

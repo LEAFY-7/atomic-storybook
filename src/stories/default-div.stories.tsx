@@ -164,8 +164,8 @@ const Template = (args) => {
   );
 };
 
-export const defaultDiv = Template.bind({});
-defaultDiv.args = {
+export const defaultDivComponent = Template.bind({});
+defaultDivComponent.args = {
   variant: "translucent",
   size: "md",
   isBorder: false,

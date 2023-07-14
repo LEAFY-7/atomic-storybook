@@ -121,11 +121,7 @@ export const typography = {
     type: "fontWeights",
     rawValue: "400",
   },
-  "ref-fontWeights-bold": {
-    value: 700,
-    type: "fontWeights",
-    rawValue: "700",
-  },
+  "ref-fontWeights-bold": { value: 700, type: "fontWeights", rawValue: "700" },
   "ref-fontWeights-medium": {
     value: 500,
     type: "fontWeights",

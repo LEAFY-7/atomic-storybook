@@ -1,14 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import React, { CSSProperties, HTMLAttributes } from "react";
 import { css } from "@emotion/react";
-import { SerializedStyles, Theme } from "@emotion/react";
 import { theme } from "../../configs/ui.config";
 import { divSizeBox, variantStyles } from "./div.styles";
-
-interface VariantState<T extends string> {
-  variant: T;
-  callback: { [key in T]: (theme: Theme) => SerializedStyles };
-}
 
 interface DivProps extends HTMLAttributes<HTMLDivElement> {
   id?: string;

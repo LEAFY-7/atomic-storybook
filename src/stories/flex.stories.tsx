@@ -142,8 +142,8 @@ const Template = (args) => {
   );
 };
 
-export const defaultBox = Template.bind({});
-defaultBox.args = {
+export const flexComponent = Template.bind({});
+flexComponent.args = {
   as: "div",
   direction: "row",
   justifyContent: "flex-start",

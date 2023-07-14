@@ -1,6 +1,5 @@
 import DropDiv from "../components/Div/drop-div";
 import { Meta } from "@storybook/react";
-import { action } from "@storybook/addon-actions";
 import * as Styled from "./index.styles";
 export default {
   title: "Atom/Div",
@@ -17,7 +16,7 @@ export default {
 
 const Template = (args) => {
   const { size } = args;
-  const { width, height, shadow, children } = dropSizeBox[size];
+  const { width, height, children } = dropSizeBox[size];
 
   let description = "";
   switch (size) {
@@ -82,8 +81,8 @@ const Template = (args) => {
   );
 };
 
-export const waterDrop = Template.bind({});
-waterDrop.args = {
+export const dropDivComponent = Template.bind({});
+dropDivComponent.args = {
   size: "lg",
   children: "",
 };
