@@ -3,6 +3,7 @@ import { Meta } from "@storybook/react";
 import Flex from "../components/Group/flex";
 import * as Styled from "./index.styles";
 import Div from "../components/Div/default-div";
+import Box from "../components/Box/default-box";
 
 export default {
   title: "Atom/Flex",
@@ -120,18 +121,13 @@ const Template = (args) => {
             <Styled.Detail>
               <Styled.Td>이 flex의 태그는 {as}</Styled.Td>
             </Styled.Detail>
-            <Flex {...args}>
-              <Div variant="primary" size="lg">
-                예) Div 컴포넌트 primary
-              </Div>
-              <Div variant="secondary" size="lg">
-                예) Div 컴포넌트 secondary
-              </Div>
-              <Div variant="translucent" size="lg">
-                예) Div 컴포넌트 translucent
-              </Div>
-              {children}
-            </Flex>
+            <Box
+              width={100}
+              height={100}
+              style={{ padding: "0px calc((100% - 1000px) / 2)" }}
+            >
+              <Flex {...args}>{children}</Flex>
+            </Box>
             <Styled.BottomText>
               이 스케치북의 너비는 1200px 높이는 750px입니다.
             </Styled.BottomText>
@@ -143,11 +139,29 @@ const Template = (args) => {
 };
 
 export const flexComponent = Template.bind({});
+
 flexComponent.args = {
   as: "div",
   direction: "row",
   justifyContent: "flex-start",
   alignItems: "flex-start",
   wrap: "nowrap",
-  children: "",
+
+  children: (
+    <>
+      <Flex>
+        <Div variant="primary" size="lg">
+          예) Div 컴포넌트 primary
+        </Div>
+        <Div variant="secondary" size="lg">
+          예) Div 컴포넌트 secondary
+        </Div>
+      </Flex>
+      <Flex>
+        <Div variant="translucent" size="lg">
+          예) Div 컴포넌트 translucent
+        </Div>
+      </Flex>
+    </>
+  ),
 };
