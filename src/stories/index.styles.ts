@@ -2,12 +2,18 @@ import styled from "@emotion/styled";
 
 export const DescriptionBox = styled.div`
   width: 1200px;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-top: 16px;
+  margin-left: 8px;
+  margin-bottom: 16px;
+
   background-color: rgba(245, 245, 245, 0.3);
   box-shadow:
-    5px 5px 10px rgba(14, 17, 27, 0.15),
-    inset 5px 5px 10px rgba(250, 250, 250, 0.15);
+    rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   backdrop-filter: blur(15px);
 `;
 

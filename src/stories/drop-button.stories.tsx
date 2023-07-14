@@ -82,60 +82,39 @@ const Template = (args) => {
 
   return (
     <section>
-      <button onClick={() => setToggle((prev) => !prev)}>설명 보기</button>
+      <Styled.H1>Drop 물방울 버튼 컴포넌트</Styled.H1>
+      <Styled.Strong>이 버튼 컴포넌트는 hover시에 물방울이 등장</Styled.Strong>
+      <DropButton onClick={() => setToggle((prev) => !prev)}>
+        설명 보기
+      </DropButton>
       {toggle && (
         <Styled.DescriptionBox>
-          <Styled.H1>일반 Box 컴포넌트</Styled.H1>
+          <Styled.H3>1. variant</Styled.H3>
           <Styled.Strong>
-            이 컴포넌트는 일반적인 Div와 달리 시멘틱 태그를 위해 사용
+            variant의 props에 따라 다른 유형이 등장합니다.
           </Styled.Strong>
+          <Styled.Li>"primary", "secondary", "default"</Styled.Li>
 
-          <Styled.H3>1. as Props</Styled.H3>
+          <Styled.H3>2. size</Styled.H3>
           <Styled.Strong>
-            as에 변형을 원하는 태그를 등록할 수 있습니다.
+            size props에 따라 내부 padding의 설정 크기가 변형됩니다.
           </Styled.Strong>
+          <Styled.Li>"xs", "sm", "md", "lg", "xl" </Styled.Li>
+
+          <Styled.H3>3. disabled</Styled.H3>
           <Styled.Li>
-            변형가는한 태그 "div", "main", "nav", "section", "article",
-            "header", "aside", "ul" 등
+            disabled 상태를 나타냅니다. 타입은 boolean 이며 default : false
           </Styled.Li>
 
-          <Styled.H3>2. width/height</Styled.H3>
-          <Styled.Strong>
-            size를 prop으로 내려주지 않으면 커스텀하여 사용할 수 있습니다.
-          </Styled.Strong>
+          <Styled.H3>4. isBorder</Styled.H3>
           <Styled.Li>
-            width/height에 number로 내려주게 되면 %로 받게 됩니다.
-          </Styled.Li>
-          <Styled.Li>예 ) `width={100}` 넓이 : 100% </Styled.Li>
-          <Styled.Li>
-            width/height에 string으로 내려주게 되면 px로 받게 됩니다.
+            배경 테두리 선을 나타냅니다. 타입은 Boolean이며 default : false
           </Styled.Li>
 
-          <Styled.Li>예 ) `width="100px"` 넓이 : 100px </Styled.Li>
+          <Styled.H3>5. custom</Styled.H3>
           <Styled.Li>
-            (주의 ! 이 스토리북에서는 단일 타입만 적용이 되므로 숫자만 기입이
-            가능하지만, 실제 사용시에는 숫자는 %로 적용되며 px로 적용하기
-            위해서는 문자열로 입력합니다.)
-          </Styled.Li>
-
-          <Styled.H3>3. Margin - margin, Top, Bottom, Left, Right</Styled.H3>
-          <Styled.Li>
-            margin top/bottom/left/right의 props는 number 타입입니다.
-          </Styled.Li>
-          <Styled.Li>number에 맞게 px단위로 이동을 하게 됩니다.</Styled.Li>
-
-          <Styled.H3>4. Padding -padding, Top, Bottom, Left, Right</Styled.H3>
-          <Styled.Li>
-            padding top/bottom/left/right의 props는 number 타입입니다.
-          </Styled.Li>
-          <Styled.Li>
-            number에 맞게 px단위로 padding을 적용하게 됩니다.
-          </Styled.Li>
-
-          <Styled.H3>5. 그 밖의 props</Styled.H3>
-          <Styled.Li>
-            display, justifyContent, alignItems, direction(flex-direction),
-            color, backgroundColor, overflowX/Y, padding 등
+            하지만 variant 타입에 국한되지 않고, backgroundColor, color속성등을
+            통해서도 변형이 가능합니다.
           </Styled.Li>
         </Styled.DescriptionBox>
       )}

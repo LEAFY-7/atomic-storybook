@@ -2,9 +2,10 @@ import { useState } from "react";
 import { Meta } from "@storybook/react";
 import * as Styled from "./index.styles";
 import Typography from "../components/Typography/default-typography";
+import DropButton from "../components/Button/drop-button";
 
 export default {
-  title: "Atom/typography",
+  title: "Atom/Typography",
   component: Typography,
   argTypes: {
     as: {
@@ -73,14 +74,15 @@ const Template = (args) => {
 
   return (
     <section>
-      <button onClick={() => setToggle((prev) => !prev)}>설명 보기</button>
+      <Styled.H1>Typography 컴포넌트</Styled.H1>
+      <Styled.Strong>
+        이 컴포넌트는 텍스트를 다루는 컴포넌트입니다.
+      </Styled.Strong>
+      <DropButton onClick={() => setToggle((prev) => !prev)}>
+        설명 보기
+      </DropButton>
       {toggle && (
         <Styled.DescriptionBox>
-          <Styled.H1>Typography 컴포넌트</Styled.H1>
-          <Styled.Strong>
-            이 컴포넌트는 텍스트를 다루는 컴포넌트입니다.
-          </Styled.Strong>
-
           <Styled.H3>1. variant</Styled.H3>
           <Styled.Li>
             이 컴포넌트 variant의 유형에 따라 크기와 굵기가 다른 모양을

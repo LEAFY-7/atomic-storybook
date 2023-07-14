@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Meta } from "@storybook/react";
 import Box from "../components/Box/default-box";
 import * as Styled from "./index.styles";
+import DropButton from "../components/Button/drop-button";
+
 export default {
   title: "Atom/Box",
   component: Box,
@@ -68,14 +70,15 @@ const Template = (args) => {
 
   return (
     <section>
-      <button onClick={() => setToggle((prev) => !prev)}>설명 보기</button>
+      <Styled.H1>일반 Box 컴포넌트</Styled.H1>
+      <Styled.Strong>
+        이 컴포넌트는 일반적인 Div와 달리 시멘틱 태그를 위해 사용
+      </Styled.Strong>
+      <DropButton onClick={() => setToggle((prev) => !prev)}>
+        설명 보기
+      </DropButton>
       {toggle && (
         <Styled.DescriptionBox>
-          <Styled.H1>일반 Box 컴포넌트</Styled.H1>
-          <Styled.Strong>
-            이 컴포넌트는 일반적인 Div와 달리 시멘틱 태그를 위해 사용
-          </Styled.Strong>
-
           <Styled.H3>1. as Props</Styled.H3>
           <Styled.Strong>
             as에 변형을 원하는 태그를 등록할 수 있습니다.

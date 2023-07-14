@@ -1,6 +1,7 @@
 import DropDiv from "../components/Div/drop-div";
 import { Meta } from "@storybook/react";
 import * as Styled from "./index.styles";
+
 export default {
   title: "Atom/Div",
   component: DropDiv,

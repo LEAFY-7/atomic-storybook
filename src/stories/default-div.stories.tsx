@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Meta } from "@storybook/react";
 import Div from "../components/Div/default-div";
 import * as Styled from "./index.styles";
+import DropButton from "../components/Button/drop-button";
 
 export default {
   title: "Atom/Div",
@@ -72,11 +73,12 @@ const Template = (args) => {
 
   return (
     <section>
-      <button onClick={() => setToggle((prev) => !prev)}>설명 보기</button>
+      <Styled.H1>일반 Div 컴포넌트</Styled.H1>
+      <DropButton onClick={() => setToggle((prev) => !prev)}>
+        설명 보기
+      </DropButton>
       {toggle && (
         <Styled.DescriptionBox>
-          <Styled.H1>일반 Div 컴포넌트</Styled.H1>
-
           <Styled.H3>1. Size Props</Styled.H3>
           <Styled.Strong>
             size Props에 따라 Div 박스의 크기가 달라집니다.

@@ -4,6 +4,7 @@ import Flex from "../components/Group/flex";
 import * as Styled from "./index.styles";
 import Div from "../components/Div/default-div";
 import Box from "../components/Box/default-box";
+import DropButton from "../components/Button/drop-button";
 
 export default {
   title: "Atom/Flex",
@@ -60,14 +61,15 @@ const Template = (args) => {
 
   return (
     <section>
-      <button onClick={() => setToggle((prev) => !prev)}>설명 보기</button>
+      <Styled.H1>Flex 컴포넌트</Styled.H1>
+      <Styled.Strong>
+        이 컴포넌트는 컴포넌트들 간의 Grouping을 위한 컴포넌트입니다.
+      </Styled.Strong>
+      <DropButton onClick={() => setToggle((prev) => !prev)}>
+        설명 보기
+      </DropButton>
       {toggle && (
         <Styled.DescriptionBox>
-          <Styled.H1>Flex 컴포넌트</Styled.H1>
-          <Styled.Strong>
-            이 컴포넌트는 컴포넌트들 간의 Grouping을 위한 컴포넌트입니다.
-          </Styled.Strong>
-
           <Styled.H3>1. Grouping</Styled.H3>
           <Styled.Li>
             흔히 컴포넌트들을 묶고 정렬을 위해 상위 컴포넌트에 display flex를
