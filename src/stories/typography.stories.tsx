@@ -16,8 +16,19 @@ export default {
       options: ["H1", "H2", "H3", "BODY1", "BODY2", "BODY3"],
     },
     fontSize: {
-      control: { type: "radio" },
-      options: ["xxs", "xs", "sm", "md", "lg", "xl", "xxl", "xxxl", "xxxxl"],
+      control: { type: "select" },
+      options: [
+        false,
+        "xxs",
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+        "xxl",
+        "xxxl",
+        "xxxxl",
+      ],
     },
     color: {
       control: { type: "select" },
