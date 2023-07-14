@@ -2,8 +2,6 @@ import { useState } from "react";
 import { Meta } from "@storybook/react";
 import * as Styled from "./index.styles";
 import Typography from "../components/Typography/default-typography";
-import { Theme, css } from "@emotion/react";
-import { theme } from "@configs/ui.config";
 
 export default {
   title: "Atom/typography",
@@ -57,7 +55,6 @@ export default {
 const Template = (args) => {
   const [toggle, setToggle] = useState(false);
   const { as, children } = args;
-  // const typographyVariant = variantStyles[variant](theme);
 
   return (
     <section>
@@ -109,13 +106,6 @@ const Template = (args) => {
           <Styled.InnerContent>
             <Styled.Detail>
               <Styled.Td>이 Typography 컴포넌트의 태그 {as}</Styled.Td>
-              {/* <Styled.Td>font-size {typographyVariant["font-size"]}</Styled.Td>
-              <Styled.Td>
-                font-weight {typographyVariant["font-weight"]}
-              </Styled.Td>
-              <Styled.Td>
-                line-height {typographyVariant["linH-height"]}
-              </Styled.Td> */}
             </Styled.Detail>
             <Typography {...args}>{children}</Typography>
             <Styled.BottomText>
@@ -136,36 +126,3 @@ defaultTypography.args = {
   fontSize: "md",
   children: "children에 텍스트를 입력해주세요.",
 };
-
-// const variantStyles = {
-//   H1: ({ typo, fontWeight }: Theme) => css`
-//     font-size: ${typo.h1.fontSize.value};
-//     font-weight: ${fontWeight[typo.h1.fontWeight.value]};
-//     line-height: ${typo.h1.lineHeight.value};
-//   `,
-//   H2: ({ typo, fontWeight }: Theme) => css`
-//     font-size: ${typo.h2.fontSize.value};
-//     font-weight: ${typo.h2.fontWeight.value};
-//     line-height: ${typo.h2.lineHeight.value};
-//   `,
-//   H3: ({ typo, fontWeight }: Theme) => css`
-//     font-size: ${typo.h3.fontSize};
-//     font-weight: ${typo.h3.fontWeight};
-//     line-height: ${typo.h3.lineHeight};
-//   `,
-//   BODY1: ({ typo, fontWeight }: Theme) => css`
-//     font-size: ${typo.body1.fontSize};
-//     font-weight: ${typo.body1.fontWeight};
-//     line-height: ${typo.body1.lineHeight};
-//   `,
-//   BODY2: ({ typo, fontWeight }: Theme) => css`
-//     font-size: ${typo.body2.fontSize};
-//     font-weight: ${typo.body2.fontWeight};
-//     line-height: ${typo.body2.lineHeight};
-//   `,
-//   BODY3: ({ typo, fontWeight }: Theme) => css`
-//     font-size: ${typo.body2.fontSize + "px"};
-//     font-weight: ${typo.body2.fontWeight};
-//     line-height: ${typo.body2.lineHeight};
-//   `,
-// };
