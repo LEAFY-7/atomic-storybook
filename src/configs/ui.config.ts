@@ -1,238 +1,168 @@
-import { colors } from './style.config';
+import {
+  TokenGlobal,
+  TokenGlobalColorList,
+  TokenGlobalOnlyColor,
+  colorSelector,
+  TokenGlobalBoxShadowList,
+  TokenTypography,
+} from "../commons/tokens/index.types";
 
-const uiConfigs = {
-    light: {
-        style: {
-            linearGradient: `linear-gradient(rgba(0, 0, 0, 0.4) 10%, transparent 100%)`,
-            boxShadow: 'none',
+const {
+  green,
+  lgreen,
+  grey,
+  white,
+  black,
+  red,
+  yellow,
+  blossom,
+}: TokenGlobalOnlyColor = TokenGlobal;
+const primary = colorSelector("primary", TokenGlobalColorList);
+const secondary = colorSelector("secondary", TokenGlobalColorList);
 
-            text: {
-                whiteColor: colors.white,
-                blackColor: colors.black,
-                primaryColor: colors.turquoise,
-                secondary: colors.turquoise_50,
-            },
-            default: {
-                borderColor: colors.gray_100,
-                backgroundColor: colors.transparent,
-            },
-            primary: {
-                borderColor: colors.turquoise_300,
-                backgroundColor: colors.turquoise,
-            },
-            secondary: {
-                borderColor: colors.turquoise_300,
-                backgroundColor: colors.turquoise_50,
-            },
-            tertiary: {
-                borderColor: colors.purple_100,
-                backgroundColor: colors.purple,
-            },
-            quaternary: {
-                borderColor: colors.navy_100,
-                backgroundColor: colors.navy,
-            },
-            important: {
-                borderColor: colors.white_300,
-                backgroundColor: colors.red,
-            },
-        },
-        default: {
-            borderColor: colors.gray,
-            background: colors.transparent,
-            color: colors.black,
-            hoverBorder: colors.transparent,
-            hoverBackground: colors.transparent,
-            hoverColor: colors.green,
-        },
-        gray: {
-            borderColor: colors.gray_200,
-            background: colors.gray_100,
-            color: colors.black,
-            hoverBorder: colors.gray_100,
-            hoverBackground: colors.gray_100,
-            hoverColor: colors.white,
-        },
-        green: {
-            borderColor: colors.lgreen,
-            background: colors.transparent,
-            color: colors.lgreen,
-            anotherColor: colors.vigreen_900,
-            focusBorder: colors.vert,
-            foucsBackground: colors.vert,
-            focusColor: colors.white,
-            hoverBorder: colors.bgreen,
-            hoverBackground: colors.bgreen,
-            hoverColor: colors.white,
-            activeBorder: colors.green,
-            activeBackground: colors.green,
-            activeColor: colors.white,
-        },
-        greenFill: {
-            borderColor: colors.vigreen_800,
-            background: colors.green,
-            color: colors.white,
-            focusBorder: colors.vert,
-            foucsBackground: colors.vert,
-            focusColor: colors.white,
-            hoverBorder: colors.bgreen,
-            hoverBackground: colors.bgreen,
-            hoverColor: colors.white,
-            activeBorder: colors.green,
-            activeBackground: colors.green,
-            activeColor: colors.white,
-        },
-        greenBorder: {
-            borderColor: colors.lgreen,
-            background: colors.transparent,
-            color: colors.lgreen,
-            focusBorder: colors.vert,
-            foucsBackground: colors.vert,
-            focusColor: colors.white,
-            hoverBorder: colors.bgreen,
-            hoverBackground: colors.white,
-            hoverColor: colors.bgreen,
-            activeBorder: colors.green,
-            activeBackground: colors.green,
-            activeColor: colors.white,
-        },
-        red: {
-            borderColor: colors.red,
-            background: colors.red,
-            color: colors.white,
-            focusBorder: colors.red,
-            foucsBackground: colors.red,
-            focusColor: colors.white,
-            hoverBorder: colors.tdred_600,
-            hoverBackground: colors.tdred_600,
-            hoverColor: colors.white,
-            activeBorder: colors.tdred_900,
-            activeBackground: colors.tdred_900,
-            activeColor: colors.white,
-        },
-        normal: {
-            color: colors.black,
-            backgroundColor: colors.white,
-            borderBottom: colors.green,
-            overlayColor: 'rgba(0, 0, 0, 0.5)',
-        },
-    },
-    dark: {
-        style: {
-            linearGradient: `linear-gradient(rgba(255, 255, 255, 0.4) 0%, transparent 100%)`,
-            boxShadow: 'inset 0px 0px 5px 5px rgba(255, 255, 255, 0.1)',
-
-            text: {
-                whiteColor: colors.black,
-                blackColor: colors.white,
-                primaryColor: colors.white,
-                secondary: colors.white_100,
-            },
-            default: {
-                borderColor: colors.gray_100,
-                backgroundColor: colors.transparent,
-            },
-            primary: {
-                borderColor: colors.white_300,
-                backgroundColor: colors.transparent,
-            },
-            secondary: {
-                borderColor: colors.white_300,
-                backgroundColor: colors.white,
-            },
-            tertiary: {
-                borderColor: colors.white_300,
-                backgroundColor: colors.white,
-            },
-            quaternary: {
-                borderColor: colors.white_300,
-                backgroundColor: colors.white,
-            },
-            important: {
-                borderColor: colors.white_300,
-                backgroundColor: colors.red,
-            },
-        },
-        default: {
-            borderColor: colors.gray,
-            background: colors.transparent,
-            color: colors.white,
-            hoverBorder: colors.gray_100,
-            hoverBackground: colors.transparent,
-            hoverColor: colors.green,
-        },
-        gray: {
-            borderColor: colors.gray,
-            background: colors.white,
-            color: colors.black,
-            hoverBorder: colors.green,
-            hoverBackground: colors.bgreen,
-            hoverColor: colors.white,
-        },
-        green: {
-            borderColor: colors.vigreen_100,
-            background: colors.vigreen_900,
-            color: colors.gray_100,
-            anotherColor: colors.gray_100,
-            focusBorder: colors.vert,
-            foucsBackground: colors.vert,
-            focusColor: colors.white,
-            hoverBorder: colors.bgreen,
-            hoverBackground: colors.bgreen,
-            hoverColor: colors.white,
-            activeBorder: colors.green,
-            activeBackground: colors.green,
-            activeColor: colors.white,
-        },
-        greenFill: {
-            borderColor: colors.vigreen_700,
-            background: colors.vigreen_900,
-            color: colors.white,
-            focusBorder: colors.vert,
-            foucsBackground: colors.vert,
-            focusColor: colors.white,
-            hoverBorder: colors.bgreen,
-            hoverBackground: colors.bgreen,
-            hoverColor: colors.white,
-            activeBorder: colors.green,
-            activeBackground: colors.green,
-            activeColor: colors.white,
-        },
-        greenBorder: {
-            borderColor: colors.white,
-            background: colors.transparent,
-            color: colors.white,
-            focusBorder: colors.vert,
-            foucsBackground: colors.vert,
-            focusColor: colors.white,
-            hoverBorder: colors.bgreen,
-            hoverBackground: colors.white,
-            hoverColor: colors.bgreen,
-            activeBorder: colors.green,
-            activeBackground: colors.green,
-            activeColor: colors.white,
-        },
-        red: {
-            borderColor: colors.lgreen,
-            background: colors.transparent,
-            color: colors.lgreen,
-            focusBorder: colors.vert,
-            foucsBackground: colors.vert,
-            focusColor: colors.white,
-            hoverBorder: colors.bgreen,
-            hoverBackground: colors.white,
-            hoverColor: colors.bgreen,
-            activeBorder: colors.green,
-            activeBackground: colors.green,
-            activeColor: colors.white,
-        },
-        normal: {
-            color: colors.white,
-            backgroundColor: colors.black,
-            borderBottom: colors.gray,
-            overlayColor: 'rgba(230, 229, 229, 0.683)',
-        },
-    },
+export const colors = {
+  primary: primary,
+  secondary: secondary,
+  inherit: "inherit",
+  current: "currentColor",
+  transparent: "transparent",
+  green: green.value,
+  lgreen: lgreen.value,
+  white: white.value,
+  grey: grey.value,
+  black: black.value,
+  red: red.value,
+  yellow: yellow.value,
+  blossom: blossom.value,
 };
 
-export default uiConfigs;
+export const shadow = {
+  sm: TokenGlobalBoxShadowList.sm,
+  lg: TokenGlobalBoxShadowList.lg,
+};
+
+export const fontSize = {
+  xxs: "8px",
+  xs: "10px",
+  sm: "14px",
+  md: "16px",
+  lg: "18px",
+  xl: "20px",
+  xxl: "26px",
+  xxxl: "36px",
+  xxxxl: "48px",
+};
+export const lineHeight = {
+  xxs: "12px",
+  xs: "14px",
+  sm: "20px",
+  md: "22px",
+  lg: "22px",
+  xl: "22px",
+  xxl: "28px",
+  xxxl: "40px",
+  xxxxl: "53px",
+};
+export const fontWeight = {
+  bold: 700,
+  semiBold: 600,
+  medium: 500,
+  regular: 400,
+};
+
+export const breakpoint = {
+  mobile: "320px",
+  tablet: "768px",
+  desktop: "1280px",
+};
+export const mediaQuery = {
+  mobile: `@media only screen and (min-width: ${breakpoint.mobile})`,
+  tablet: `@media only screen and (min-width: ${breakpoint.tablet})`,
+  desktop: `@media only screen and (min-width: ${breakpoint.desktop})`,
+};
+export const light = {
+  bgColor: colors.transparent,
+  linearGradient: `linear-gradient(rgba(0, 0, 0, 0.4) 10%, transparent 100%)`,
+  boxShadow: "none",
+
+  text: {
+    primary: colors.green,
+    secondary: colors.lgreen,
+    white: colors.white,
+    black: colors.black,
+    grey: colors.grey,
+    green: colors.green,
+    lgreen: colors.lgreen,
+    red: colors.red,
+    yellow: colors.yellow,
+    blossom: colors.blossom,
+  },
+  primary: {
+    borderColor: colors.primary,
+    backgroundColor: colors.primary,
+  },
+  secondary: {
+    borderColor: colors.secondary,
+    backgroundColor: colors.secondary,
+  },
+  translucent: {
+    borderColor: colors.transparent,
+    backgroundColor: "rgba(245, 245, 245, 0.3)",
+  },
+  default: {
+    borderColor: colors.grey,
+    backgroundColor: colors.transparent,
+  },
+};
+export const dark = {
+  bgColor: colors.black,
+  linearGradient: `linear-gradient(rgba(255, 255, 255, 0.4) 0%, transparent 100%)`,
+  boxShadow: "inset 0px 0px 5px 5px rgba(255, 255, 255, 0.1)",
+
+  text: {
+    white: colors.black,
+    black: colors.white,
+    primary: colors.white,
+    secondary: colors.white,
+    grey: colors.white,
+    green: colors.white,
+    lgreen: colors.white,
+    red: colors.white,
+    yellow: colors.white,
+    blossom: colors.white,
+  },
+  primary: {
+    borderColor: colors.white,
+    backgroundColor: colors.white,
+  },
+  secondary: {
+    borderColor: colors.white,
+    backgroundColor: colors.white,
+  },
+  translucent: {
+    borderColor: colors.transparent,
+    backgroundColor: "rgba(35, 35, 35, 0.3)",
+  },
+  default: {
+    borderColor: colors.transparent,
+    backgroundColor: colors.transparent,
+  },
+};
+
+export const theme = {
+  palette: light,
+  typo: TokenTypography,
+  colors,
+  fontSize,
+  lineHeight,
+  fontWeight,
+  breakpoint,
+  mediaQuery,
+  shadow,
+  imgSize: {
+    sm: "20px",
+    md: "50px",
+    lg: "60px",
+  },
+};
+export default { theme, light, dark };

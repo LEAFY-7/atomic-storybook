@@ -15,6 +15,7 @@ module.exports = {
       "@configs": path.resolve(__dirname, "./src/configs"),
       "@hooks": path.resolve(__dirname, "./src/hooks"),
       "@stories": path.resolve(__dirname, "./src/stories"),
+      "@commons": path.resolve(__dirname, "./src/commons"),
     },
   },
   entry: {
