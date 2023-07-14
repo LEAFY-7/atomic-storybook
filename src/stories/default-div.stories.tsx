@@ -39,7 +39,7 @@ export default {
 } as Meta;
 
 const Template = (args) => {
-  const { size, width, height, children } = args;
+  const { size, width, height, children, variant } = args;
 
   const { width: w, height: h } = divSizeBox[size];
 
@@ -127,6 +127,8 @@ const Template = (args) => {
           <div> {children}</div>
         </Div>
       </div>
+      <td style={{ fontSize: "16px" }}>variant : {variant}</td>
+      <td style={{ fontSize: "16px" }}>size : {size}</td>
       <td style={{ fontSize: "16px" }}>
         넓이 : {size === "default" ? w + "px" : width}
       </td>
@@ -139,8 +141,8 @@ const Template = (args) => {
 
 export const defaultDiv = Template.bind({});
 defaultDiv.args = {
-  size: "default",
-  variant: "default",
+  size: "md",
+  variant: "translucent",
   isBorder: false,
   width: "inherit",
   height: "inherit",
