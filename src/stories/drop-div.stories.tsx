@@ -64,6 +64,7 @@ const Template = (args) => {
           alignItems: "center",
         }}
       >
+        <span> {description}</span>
         <DropDiv {...args} />
 
         <td style={{ fontSize: "16px" }}>넓이 : {width} px</td>
