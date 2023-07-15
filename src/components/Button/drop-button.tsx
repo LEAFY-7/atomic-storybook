@@ -43,6 +43,7 @@ const DropButton = React.forwardRef(function DropButton(
 ) {
   const {
     height,
+    bubbleSize,
     padding,
     radius,
     fontSize: newFontSize,
@@ -51,16 +52,16 @@ const DropButton = React.forwardRef(function DropButton(
   const btnVariant = variantStyles[variant](theme);
 
   const defaultButtonStyle = ({ palette }: Theme) => css`
-    height: ${height + "rem"};
+    height: ${height + "px"};
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     position: relative;
-    padding-left: ${padding * 2 + "rem"};
-    padding-right: ${padding * 2 + "rem"};
-    padding-bottom: ${padding / 2 + "rem"};
-    padding-top: ${padding / 2 + "rem"};
+    padding-left: ${padding * 2 + "px"};
+    padding-right: ${padding * 2 + "px"};
+    padding-bottom: ${padding / 2 + "px"};
+    padding-top: ${padding / 2 + "px"};
     background-origin: border-box;
     outline: none;
     word-break: keep-all;
@@ -96,17 +97,17 @@ const DropButton = React.forwardRef(function DropButton(
     &:focus::before {
       content: "";
       position: absolute;
-      width: 20px;
-      height: 20px;
-      left: 5px;
-      top: 5px;
+      width: ${bubbleSize + "px"};
+      height: ${bubbleSize + "px"};
+      left: 2%;
+      top: 3%;
       background: radial-gradient(
         50% 50% at 50% 50%,
         #fafafa 0%,
-        rgba(250, 250, 250, 0.15) 15.1%,
+        rgba(250, 250, 250, 0.15) 0%,
         #fafafa 100%
       );
-      border-radius: 76% 24% 74% 26% / 58% 28% 72% 42%;
+      border-radius: 58% 42% 77% 23% / 73% 30% 70% 27%;
       mix-blend-mode: normal;
       opacity: 0.5;
       box-shadow:
@@ -116,17 +117,17 @@ const DropButton = React.forwardRef(function DropButton(
     &:focus::after {
       content: "";
       position: absolute;
-      width: 20px;
-      height: 20px;
-      right: 5px;
-      bottom: 5px;
+      width: ${bubbleSize + "px"};
+      height: ${bubbleSize + "px"};
+      right: 2%;
+      bottom: 2%;
       background: radial-gradient(
         50% 50% at 50% 50%,
         #fafafa 0%,
-        rgba(250, 250, 250, 0.15) 15.1%,
+        rgba(250, 250, 250, 0.15) 2%,
         #fafafa 100%
       );
-      border-radius: 50%;
+      border-radius: 51%;
       mix-blend-mode: normal;
       opacity: 0.5;
       box-shadow:
@@ -156,14 +157,13 @@ const DropButton = React.forwardRef(function DropButton(
         #fafafa 100%
       );
       mix-blend-mode: normal;
-      border-radius: 15px;
+      border-radius: ${radius + "px"};
       opacity: 0.7;
-      transform: matrix(-1, 0, 0, 1, 0, 0);
+      transform: matrix(1, 0, 0, 1, 0, 0);
     }
 
     ${btnVariant}
-    background-color: ${theme.colors[backgroundColor]};
-    color: ${color && theme.colors[color]};
+
     &:disabled {
       box-shadow: none;
       border-color: ${theme.colors.grey};
@@ -177,6 +177,9 @@ const DropButton = React.forwardRef(function DropButton(
         height: 0%;
       }
     }
+
+    background-color: ${theme.colors[backgroundColor]};
+    color: ${color && palette.text[color]};
   `;
 
   return (
