@@ -47,35 +47,7 @@ const RoundButton = React.forwardRef(function RoundButton(
   } = sizeBox[size];
   const btnVariant = variantStyles[variant](theme);
 
-  const defaultButtonStyle = ({ palette }: Theme) => css`
-    height: ${height + "px"};
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    position: relative;
-    padding-left: ${padding * 2 + "px"};
-    padding-right: ${padding * 2 + "px"};
-    padding-bottom: ${padding / 2 + "px"};
-    padding-top: ${padding / 2 + "px"};
-    background-origin: border-box;
-    outline: none;
-    word-break: keep-all;
-    margin: 8px;
-    border: ${isBorder && "solid"};
-    border-width: ${isBorder ? borderWidth + "px" : 0};
-    border-radius: ${radius + "px"};
-    font-size: ${!fontSize ? newFontSize + "px" : theme.fontSize[fontSize]};
-    font-weight: ${fontWeight && theme.fontWeight[fontWeight]};
-    gap: 10px;
-    mix-blend-mode: normal;
-    box-shadow: inset 5px 5px 5px rgba(14, 17, 27, 0.15);
-    box-sizing: border-box;
-    flex-grow: 1;
-    transition: all 0.5s ease-out;
-
-    ${btnVariant}
-
+  const eventStyle = css`
     &:hover::after {
       content: "";
       position: absolute;
@@ -118,8 +90,38 @@ const RoundButton = React.forwardRef(function RoundButton(
       opacity: 0.7;
       transform: matrix(-1, 0, 0, 1, 0, 0);
     }
+  `;
+  const defaultButtonStyle = ({ palette }: Theme) => css`
+    height: ${height + "px"};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    padding-left: ${padding * 2 + "px"};
+    padding-right: ${padding * 2 + "px"};
+    padding-bottom: ${padding / 2 + "px"};
+    padding-top: ${padding / 2 + "px"};
+    background-origin: border-box;
+    outline: none;
+    word-break: keep-all;
+    margin: 8px;
+    border: ${isBorder && "solid"};
+    border-width: ${isBorder ? borderWidth + "px" : 0};
+    border-radius: ${radius + "px"};
+    font-size: ${!fontSize ? newFontSize + "px" : theme.fontSize[fontSize]};
+    font-weight: ${fontWeight && theme.fontWeight[fontWeight]};
+    gap: 10px;
+    mix-blend-mode: normal;
+    box-shadow: inset 5px 5px 5px rgba(14, 17, 27, 0.15);
+    box-sizing: border-box;
+    flex-grow: 1;
+    transition: all 0.5s ease-out;
 
-    &:disabled {
+    ${btnVariant}
+    ${variant !== "default" && eventStyle}
+
+  &:disabled {
       border-color: ${theme.colors.grey};
       background-color: ${theme.colors.grey};
       color: ${theme.colors.white};
